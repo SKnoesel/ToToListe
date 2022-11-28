@@ -1,0 +1,39 @@
+﻿@model List<ToDo>
+
+
+<table>
+    <tr>
+        <th>Id</th>
+        <th>Inhalt</th>
+        <th>ErstellDatum</th>
+        <th>Enddatum</th>
+        <th>Status</th>
+    </tr>
+    @foreach(ToDo todo in Model)
+    {
+        <tr>
+            <td>@todo.Id</td>
+            <td>@todo.Inhalt</td>
+            <td>@todo.ErstellDatum</td>
+            <td>@todo.Enddatum</td>
+            @if (todo.Abgehakt == "Ja")
+            {
+                <td>✓</td>
+            } else 
+            {
+                <td>x</td>
+                <td><a href="/ToDo/Complete?id=@todo.Id">Complete</a></td>
+            }
+            <td><a href="/ToDo/EditView?id=@todo.Id">Edit</a></td>
+            <td><a href="/ToDo/Delete?id=@todo.Id">Delete</a></td>
+        </tr>
+    }
+</table>
+
+<form action="/ToDo/Add">
+    <label for="Inhalt">Inhalt</label><br>
+    <input type="text" id="Inhalt" name="Inhalt"><br>
+    <label for="Enddatum">Enddatum</label><br>
+    <input type="datetime-local" id="Enddatum" name="Enddatum"><br><br>
+    <input type="submit" value="Submit">
+</form> 

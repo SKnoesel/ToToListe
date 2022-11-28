@@ -1,0 +1,12 @@
+﻿@model ToDo
+
+<form action="/ToDo/Edit">
+    <input type="number" id="Id" name="Id" value="@Model.Id" hidden="true"><br>
+    <label for="Inhalt">Inhalt</label><br>
+    <input type="text" id="Inhalt" name="Inhalt" value="@Model.Inhalt"><br>
+    <label for="Enddatum">Enddatum</label><br>
+    <input type="datetime-local" id="Enddatum" name="Enddatum" value="@Model.Enddatum"><br><br>
+    <label for="Abgehakt">Abgehakt</label><br>
+    <input type="text" id="Abgehakt" name="Abgehakt" value="@Model.Abgehakt"><br><br>
+    <input type="submit" value="Submit">
+</form> 
